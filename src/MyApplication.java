@@ -16,7 +16,7 @@ public class MyApplication {
             Point point = new Point(x, y);
             shape.addPoint(point);
         }
-        System.out.println("Perimiter is " + shape.getPerimiter());
+        System.out.println("Perimiter is  " + shape.getPerimiter());
         System.out.println("Average side is " + shape.getAverage());
         System.out.println("Longest side is " + shape.getLongest());
     }
