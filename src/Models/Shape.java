@@ -7,13 +7,10 @@ import static java.lang.Math.sqrt;
 
 public class Shape {
     private ArrayList<Point> points = new ArrayList<>();
-    public Shape(){
-
-    }
     public void addPoint(Point point){
         points.add(point);
     }
-    public double getPerimiter(){
+    public double getPerimeter(){
         double answer = 0.0;
         for (int i = 0; i < points.size(); i++) {
             if (i + 1 < points.size()){
