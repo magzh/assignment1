@@ -11,45 +11,41 @@ public class Shape {
         points.add(point);
     }
     public double getPerimeter(){
+        ArrayList<Double> sides = getSides();
         double answer = 0.0;
-        for (int i = 0; i < points.size(); i++) {
-            if (i + 1 < points.size()){
-                answer += points.get(i).calculateDist(points.get(i+1));
-            }
-            else{
-                answer += points.get(i).calculateDist(points.getFirst());
-            }
+        for (Double side : sides) {
+            answer += side;
         }
         return answer;
     }
     public double getLongest(){
+        ArrayList<Double> sides = getSides();
         double answer = 0.0;
-        for (int i = 0; i < points.size(); i++) {
-            if (i + 1 < points.size()){
-                double temp = points.get(i).calculateDist(points.get(i+1));
-                if (temp > answer){
-                    answer = temp;
-                }
-            }
-            else{
-                double temp = points.get(i).calculateDist(points.getFirst());
-                if (temp > answer){
-                    answer = temp;
-                }
+        for (double temp : sides) {
+            if (temp > answer) {
+                answer = temp;
             }
         }
         return answer;
     }
     public double getAverage(){
+        ArrayList<Double> sides = getSides();
         double total = 0.0;
+        for (Double side : sides) {
+            total += side;
+        }
+        return total / sides.size();
+    }
+    private ArrayList<Double> getSides(){
+        ArrayList<Double> sides = new ArrayList<>();
         for (int i = 0; i < points.size(); i++) {
             if (i + 1 < points.size()){
-                total += points.get(i).calculateDist(points.get(i+1));
+                sides.add(points.get(i).calculateDistance(points.get(i+1)));
             }
             else{
-                total += points.get(i).calculateDist(points.getFirst());
+                sides.add(points.get(i).calculateDistance(points.getFirst()));
             }
         }
-        return total / points.size();
+        return sides;
     }
 }

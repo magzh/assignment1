@@ -21,7 +21,15 @@ public class Point {
     public double getY(){
         return y;
     }
-    public double calculateDist(Point p1){
+    public double calculateDistance(Point p1){
         return sqrt( (p1.getX() - this.getX())*(p1.getX() - this.getX()) + (p1.getY() - this.getY())*(p1.getY() - this.getY()));
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }
